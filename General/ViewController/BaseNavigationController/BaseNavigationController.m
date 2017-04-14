@@ -7,6 +7,7 @@
 //
 
 #import "BaseNavigationController.h"
+#import "UIBarButtonItem+Create.h"
 
 @interface BaseNavigationController ()
 
@@ -16,22 +17,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UINavigationBar *navBar = [UINavigationBar appearance];
+    navBar.tintColor = [UIColor whiteColor];
+    navBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    [navBar setShadowImage:[UIImage new]];
+    navBar.translucent = NO;
+    
+    [navBar setBackgroundImage:[UIImage imageNamed:@"nav_background"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (self.viewControllers.count > 0) {
+        viewController.hidesBottomBarWhenPushed = YES;
+        
+        // 添加返回按钮
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"leftNavBack"] highLightedImage:[UIImage imageNamed:@"leftNavBack"] target:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    [super pushViewController:viewController animated:animated];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)back {
+    [self popViewControllerAnimated:YES];
 }
-*/
 
 @end

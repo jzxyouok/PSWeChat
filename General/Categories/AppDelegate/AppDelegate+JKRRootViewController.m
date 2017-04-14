@@ -11,7 +11,8 @@
 
 @implementation AppDelegate (JKRRootViewController)
 
-- (void)configRootViewController {
+- (void)configureRootViewController {
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     MainTabBarController *tabBarController = [[MainTabBarController alloc] init];
     self.window.rootViewController = tabBarController;

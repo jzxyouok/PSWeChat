@@ -10,6 +10,6 @@
 
 @interface AppDelegate (JKRRootViewController)
 
-- (void)configRootViewController;
+- (void)configureRootViewController;
 
 @end
