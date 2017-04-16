@@ -37,5 +37,6 @@
 //pageViewcontroller的menuHeight
 #define PAGEVC_MENU_HEIGHT 40
 
+#define NormalSpace 10
 
 #endif /* Macros_Space_h */

@@ -28,6 +28,11 @@
 #import "Macros_String.h"
 #import "Macros_Util.h"
 #import "Macros_Font.h"
+#import "Macros_Space.h"
+#import "Macros_UIAdapter.h"
+#import "Macros_Number.h"
+
+#import "UIView+AdjustFrame.h"
 
 #endif
 
